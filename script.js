@@ -17,7 +17,7 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 Book.prototype.info = function () {
-  return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}.`;
+  return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}. ID: ${this.ID}`;
 };
 
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
