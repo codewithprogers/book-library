@@ -12,13 +12,15 @@
       <!-- Header Info -->
       <header>
         <div class="header-top">
-          <h2>All Books</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <div>
+            <h2>All Books</h2>
+            <p>Your personal collection of books.</p>
+          </div>
           <div class="search-bar">
             <input type="search" id="search" name="search" />
           </div>
         </div>
-        
+
         <div class="header-nav-wrapper">
           <ul class="header-nav">
             <li><button type="button">All</button></li>
@@ -37,14 +39,29 @@
           <button type="button" class="add-new">+Add new</button>
         </div>
         <div class="sidebar-nav">
-          <ul>
-            <li><a href="#">All books</a></li>
-            <li><a href="#">Read</a></li>
-            <li><a href="#">Unread</a></li>
+          <ul class="sidebar-menu">
+            <li class="sidebar-item">
+              <button type="button" class="sidebar-btn">
+                <span class="sidebar-label">All books</span>
+              </button>
+            </li>
+            <li class="sidebar-item">
+              <button type="button" class="sidebar-btn">
+                <span class="sidebar-label">Read</span>
+              </button>
+            </li>
+            <li class="sidebar-item">
+              <button type="button" class="sidebar-btn">
+                <span class="sidebar-label">Unread</span>
+              </button>
+            </li>
+            <li class="sidebar-item sidebar-break"></li>
+            <li class="sidebar-item">
+              <button type="button" class="sidebar-btn">
+                <span class="sidebar-label">Clear library</span>
+              </button>
+            </li>
           </ul>
-        </div>
-        <div class="clear-all">
-          <button type="button" class="clear-all-btn">Clear library</button>
         </div>
       </aside>
 
