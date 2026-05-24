@@ -1,13 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Library Project</title>
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="script.js"></script>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Library Project</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="layout-container">
+      <!-- Header Info -->
+      <header>
+        <div class="header-top">
+          <h2>All Books</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <div class="search-bar">
+            <input type="search" id="search" name="search" />
+          </div>
+        </div>
+        
+        <div class="header-nav-wrapper">
+          <ul class="header-nav">
+            <li><button type="button">All</button></li>
+            <li><button type="button">Read</button></li>
+            <li><button type="button">Unread</button></li>
+          </ul>
+        </div>
+      </header>
+
+      <!-- Sidebar Info -->
+      <aside class="sidebar">
+        <div class="sidebar-heading">
+          <h1>Book Library</h1>
+        </div>
+        <div class="new-btn">
+          <button type="button" class="add-new">+Add new</button>
+        </div>
+        <div class="sidebar-nav">
+          <ul>
+            <li><a href="#">All books</a></li>
+            <li><a href="#">Read</a></li>
+            <li><a href="#">Unread</a></li>
+          </ul>
+        </div>
+        <div class="clear-all">
+          <button type="button" class="clear-all-btn">Clear library</button>
+        </div>
+      </aside>
+
+      <!-- Main Content Info -->
+      <main class="main-content">
+        <section class="book-cards">
+          <div class="books-grid"></div>
+        </section>
+      </main>
+    </div>
+  </body>
 </html>
