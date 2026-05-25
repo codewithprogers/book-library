@@ -81,7 +81,7 @@ aside {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 2rem 1rem;
+  padding: 2rem 2rem;
 }
 
 .sidebar-heading h1 {
@@ -90,27 +90,54 @@ aside {
   font-weight: bold;
 }
 
+.add-new {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 1rem;
+  color: #491bff;
+  
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+
+  width: 64.6%;
+  padding: 0.8rem 1rem;
+
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.add-new svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: block;
+  transform: translateX(-0.3rem);
+}
+
+.add-new svg path {
+  stroke: #491bff;
+  stroke-width: 40;
+}
+
 .sidebar-menu {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.sidebar-item button {
+.sidebar-btn {
   display: flex;
   align-items: center;
   gap: 1rem;
-}
 
-.sidebar-break {
-  border: 0.5px solid #ffffff;
-}
-
-.add-new,
-.sidebar-btn {
   background: none;
   border: none;
   color: #ffffff;
   font-size: 1.2rem;
   font-weight: bold;
+}
+
+.sidebar-break {
+  border: 0.5px solid #ffffff;
 }
