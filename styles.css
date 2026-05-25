@@ -40,6 +40,12 @@ header {
   font-weight: bold;
 }
 
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 input[type="search"] {
   width: clamp(12rem, 20vw, 20rem);
   border-radius: 1rem;
@@ -87,6 +93,12 @@ aside {
 .sidebar-menu {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar-item button {
+  display: flex;
+  align-items: center;
   gap: 1rem;
 }
 
