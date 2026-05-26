@@ -24,7 +24,7 @@ header {
   gap: 1.5rem;
   padding: 2rem 1rem;
 
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 button {
@@ -93,7 +93,7 @@ aside {
 }
 
 .sidebar-heading h1 {
-  font-family: "Arial",sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 2rem;
   font-weight: bold;
 }
@@ -103,7 +103,7 @@ aside {
   border: none;
   border-radius: 1rem;
   color: #491bff;
-  
+
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -180,6 +180,25 @@ main {
   width: 4rem;
   height: 6rem;
   background-color: rgb(240, 240, 240);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-cover-btn {
+  background-color: none;
+  border: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-cover {
+  width: 3rem;
+  height: 3rem;
+  display: block;
 }
 
 .book-info {
@@ -192,5 +211,60 @@ main {
 .control-tools {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
+}
+
+.read-info {
+  display: flex;
+  justify-content: center;
+
+  width: 2.5rem;
+  height: 2rem;
+  background-color: #c9f7e2;
+  padding: 0.5rem 2.5rem;
+  border-radius: 1.5rem;
+
+  font-family: "Arial", sans-serif;
+  color: #0a955e;
+}
+
+.switch {
+  position: relative;
+  width: 4rem;
+  height: 2rem;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background-color: #ccc;
+  border-radius: 1.5rem;
+  transition: 0.3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 1.5rem;
+  width: 1.5rem;
+  left: 0.25rem;
+  top: 0.25rem;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.switch input:checked + .slider {
+  background-color: #491bff;
+  transition: 0.3s;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(2rem);
 }
