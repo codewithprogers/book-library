@@ -78,10 +78,20 @@ input[type="search"] {
   width: 5rem;
   padding: 10px 5px;
   border-radius: 1.5rem;
-  border: none;
-  background-color: rgb(73, 27, 255);
-  color: #ffffff;
+  border: 2px solid rgb(183, 183, 183);
+  background-color: #ffffff;
+  color: black;
+  font-size: 1rem;
   font-weight: bold;
+  transition: 0.3s;
+}
+
+.header-nav button:hover,
+.header-nav button:focus {
+  background-color: rgb(73, 27, 255);
+  border: 2px solid rgb(73, 27, 255);
+  color: #ffffff;
+  transition: 0.3s;
 }
 
 /* Sidebar Styling */
