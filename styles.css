@@ -268,6 +268,12 @@ main {
   color: #0a955e;
 }
 
+.edit,
+.delete {
+  background: none;
+  border: none;
+}
+
 .switch {
   position: relative;
   width: 4rem;
