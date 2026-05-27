@@ -27,7 +27,7 @@ header {
   grid-template-rows: auto auto;
   gap: 1.5rem;
   padding: 2rem 1rem;
-
+  border-bottom: 1px solid rgb(224, 224, 224);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -66,7 +66,7 @@ input[type="search"] {
 
 .header-nav {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .header-nav li,
