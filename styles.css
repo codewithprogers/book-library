@@ -86,8 +86,7 @@ input[type="search"] {
   transition: 0.3s;
 }
 
-.header-nav button:hover,
-.header-nav button:focus {
+.header-nav button:hover {
   background-color: rgb(73, 27, 255);
   border: 2px solid rgb(73, 27, 255);
   color: #ffffff;
@@ -152,11 +151,27 @@ aside {
   align-items: center;
   gap: 1rem;
 
+  width: calc(100% + 2rem);
+  margin-left: -2rem;
+  padding: 0.6rem 1rem 0.6rem 2rem;
+
   background: none;
   border: none;
+  border-radius: 0 2rem 2rem 0;
+
   color: #ffffff;
   font-size: 1.2rem;
   font-weight: bold;
+}
+
+.sidebar-btn:hover,
+.sidebar-btn.active {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.sidebar-btn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;      
 }
 
 .sidebar-break {
