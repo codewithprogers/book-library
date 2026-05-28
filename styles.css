@@ -196,6 +196,7 @@ main {
   border-radius: 0.5rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 .card-items {
@@ -258,7 +259,7 @@ main {
   gap: 2rem;
 }
 
-.read-info {
+.read-status {
   display: flex;
   justify-content: center;
 
