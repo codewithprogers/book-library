@@ -241,6 +241,10 @@ main {
   transition: 0.3s;
 }
 
+.cover-input {
+  display: none;
+}
+
 .book-info {
   font-family: "Roboto", "Arial", sans-serif;
   display: flex;
