@@ -1,5 +1,6 @@
 const myLibrary = [];
 
+// constructor function
 function Book(title, author, pages, read) {
   if (!new.target) {
     throw Error("You must use the 'new' operator to call the constructor");
@@ -19,16 +20,6 @@ function addBookToLibrary(title, author, pages, read) {
 Book.prototype.info = function () {
   return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}.`;
 };
-
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, "Unread");
-addBookToLibrary("Good to Great", "Jim Collins", 320, "Read");
-addBookToLibrary(
-  "How to Win Friends and Influence People",
-  "Dale Carnegie",
-  320,
-  "Read",
-);
-addBookToLibrary("Rich Dad Poor Dad", "Robert T. Kiyosaki", 336, "Unread");
 
 // display function
 const list = document.querySelector(".book-list");
@@ -58,12 +49,18 @@ function displayBooks() {
 
     // add classes and attributes
     card.classList.add("book-card");
-
     cardItem.classList.add("card-items");
-
     cardInfo.classList.add("card-info");
-
     coverPlaceholder.classList.add("book-cover-placeholder");
+    bookInfo.classList.add("book-info");
+    titleAuthorWrapper.classList.add("title-author-wrapper");
+    title.classList.add("book-title");
+    author.classList.add("book-author");
+    pages.classList.add("book-pages");
+    controlTools.classList.add("control-tools");
+    readStatus.classList.add("read-status");
+    switchLabel.classList.add("switch");
+    slider.classList.add("slider");
 
     coverBtn.classList.add("add-cover-btn");
     coverBtn.type = "button";
@@ -74,37 +71,24 @@ function displayBooks() {
     coverInput.name = "book-cover";
     coverInput.accept = "image/*";
 
-    bookInfo.classList.add("book-info");
-
-    titleAuthorWrapper.classList.add("title-author-wrapper");
-
-    title.classList.add("book-title");
-
-    author.classList.add("book-author");
-
-    pages.classList.add("book-pages");
-
-    controlTools.classList.add("control-tools");
-
-    readStatus.classList.add("read-status");
-
-    switchLabel.classList.add("switch");
-
     toggle.classList.add("toggle");
     toggle.type = "checkbox";
     toggle.name = "read-status";
 
-    slider.classList.add("slider");
-
     edit.classList.add("edit");
     edit.type = "button";
-    edit.setAttribute("aria-label", "Edit book info")
+    edit.setAttribute("aria-label", "Edit book info");
 
     deleteBtn.classList.add("delete");
     deleteBtn.type = "button";
-    deleteBtn.setAttribute("aria-label", "Delete book")
+    deleteBtn.setAttribute("aria-label", "Delete book");
 
     // add text / HTML content
+    title.textContent = book.title;
+    author.textContent = book.author;
+    pages.textContent = `${book.pages} pages`;
+    readStatus.textContent = book.read;
+
     coverBtn.innerHTML = `<svg
                       class="add-cover"
                       xmlns="http://www.w3.org/2000/svg"
@@ -117,14 +101,6 @@ function displayBooks() {
                         d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
                       />
                     </svg>`;
-
-    title.textContent = book.title;
-
-    author.textContent = book.author;
-
-    pages.textContent = `${book.pages} pages`;
-
-    readStatus.textContent = book.read;
 
     edit.innerHTML = `<svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -162,5 +138,44 @@ function displayBooks() {
     list.append(card);
   }
 }
+
+// open/close new book card form
+const openNewBookForm = document.querySelector(".add-new");
+const modal = document.querySelector(".modal");
+const form = document.querySelector(".form");
+const closeForm = document.querySelector(".close-btn");
+const cancelNewBook = document.querySelector(".cancel-btn");
+
+openNewBookForm.addEventListener("click", () => {
+  modal.showModal();
+});
+
+closeForm.addEventListener("click", () => {
+  modal.close();
+});
+
+cancelNewBook.addEventListener("click", () => {
+  modal.close();
+});
+
+// submitting New Book Form info
+const titleInput = document.querySelector("#title");
+const authorInput = document.querySelector("#author");
+const pagesInput = document.querySelector("#pages");
+const readInput = document.querySelector("#read-status");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const title = titleInput.value;
+  const author = authorInput.value;
+  const pages = pagesInput.value;
+  const read = readInput.checked ? "Read" : "Unread";
+
+  addBookToLibrary(title, author, pages, read);
+  displayBooks();
+  modal.close();
+  form.reset();
+});
 
 displayBooks();
