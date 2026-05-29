@@ -319,3 +319,99 @@ main {
 .switch input:checked + .slider::before {
   transform: translateX(2rem);
 }
+
+/* dialog form */
+.modal[open] {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 1rem;
+}
+
+.modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 23rem;
+  padding: 1rem;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+}
+
+.close-btn svg {
+  fill: black;
+  stroke: black;
+  stroke-width: 50;
+}
+
+.form-field-title,
+.form-field-author,
+.form-field-pages,
+.form-field-status {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-weight: 500;
+}
+
+.required-symbol {
+  color: red;
+}
+
+.form-input {
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  border: 1.5px solid rgb(186, 186, 186);
+  font-size: 1rem;
+}
+
+.read-status-wrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.read-status-wrapper p {
+  font-weight: 300;
+  color: rgb(186, 186, 186);
+}
+
+.form-btns-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cancel-btn,
+.submit-btn {
+  padding: 0.7rem;
+  width: 10rem;
+  border-radius: 2rem;
+  font-size: 1.1rem;
+}
+
+.cancel-btn {
+  border: none;
+  border: 2px solid rgb(186, 186, 186);
+  background-color: #ffffff;
+}
+
+.submit-btn {
+  border: none;
+  border: 2px solid rgb(73, 27, 255);
+  background-color: rgb(73, 27, 255);
+  color: #ffffff;
+}
