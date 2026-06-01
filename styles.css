@@ -328,6 +328,7 @@ main {
   width: fit-content;
   height: fit-content;
   border-radius: 1rem;
+  border: none;
 }
 
 .modal::backdrop {
