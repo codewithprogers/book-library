@@ -10,6 +10,7 @@ function Book(title, author, pages, read) {
   this.pages = pages;
   this.read = read;
   this.id = crypto.randomUUID();
+  this.coverImage = "";
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -138,10 +139,37 @@ function displayBooks() {
       displayBooks();
     });
 
+    coverBtn.addEventListener("click", () => {
+      coverInput.click();
+    });
+
+    coverInput.addEventListener("change", (e) => {
+      const bookCover = e.target.files[0];
+
+      if (bookCover) {
+        const imageURL = URL.createObjectURL(bookCover);
+        book.coverImage = imageURL;
+        displayBooks();
+      }
+    });
+
+    if (book.coverImage) {
+      const image = document.createElement("img");
+      image.classList.add("book-cover-img");
+      image.src = book.coverImage;
+
+      image.addEventListener("click", () => {
+        coverInput.click();
+      });
+
+      coverPlaceholder.append(image, coverInput);
+    } else {
+      coverPlaceholder.append(coverBtn, coverInput);
+    }
+
     // append structure
     cardItem.append(cardInfo, controlTools);
     cardInfo.append(coverPlaceholder, bookInfo);
-    coverPlaceholder.append(coverBtn, coverInput);
     bookInfo.append(titleAuthorWrapper, pages);
     titleAuthorWrapper.append(title, author);
     controlTools.append(readStatus, switchLabel, edit, deleteBtn);
