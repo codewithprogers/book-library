@@ -9,7 +9,7 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.ID = crypto.randomUUID();
+  this.id = crypto.randomUUID();
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -125,6 +125,18 @@ function displayBooks() {
                       d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"
                     />
                   </svg>`;
+
+    // event listeners for this card's buttons
+    deleteBtn.addEventListener("click", () => {
+      const currentBookIndex = myLibrary.findIndex(
+        (libraryBook) => libraryBook.id === book.id,
+      );
+      if (currentBookIndex === -1) {
+        throw Error("Can't delete");
+      }
+      myLibrary.splice(currentBookIndex, 1);
+      displayBooks();
+    });
 
     // append structure
     cardItem.append(cardInfo, controlTools);
