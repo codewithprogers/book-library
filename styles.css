@@ -175,7 +175,7 @@ aside {
 
 .sidebar-btn:focus-visible {
   outline: 2px solid #ffffff;
-  outline-offset: 2px;      
+  outline-offset: 2px;
 }
 
 .sidebar-break {
@@ -268,28 +268,31 @@ main {
 
 .read-status {
   display: flex;
+  align-items: center;
   justify-content: center;
-
+  
   width: 2.5rem;
   height: 2rem;
-  background-color: #c9f7e2;
   padding: 0.5rem 2.5rem;
   border-radius: 1.5rem;
-
   font-family: "Roboto", "Arial", sans-serif;
+}
+
+.read {
+  background-color: #c9f7e2;
   color: #0a955e;
 }
 
-.edit,
-.delete {
-  background: none;
-  border: none;
+.unread {
+  background-color: #f7c9c9;
+  color: #950a0a;
 }
 
 .switch {
   position: relative;
   width: 4rem;
   height: 2rem;
+  cursor: pointer;
 }
 
 .switch input {
@@ -303,7 +306,7 @@ main {
   inset: 0;
   background-color: #ccc;
   border-radius: 1.5rem;
-  transition: 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 .slider::before {
@@ -313,18 +316,23 @@ main {
   width: 1.5rem;
   left: 0.25rem;
   top: 0.25rem;
-  background-color: white;
+  background-color: #ffffff;
   border-radius: 50%;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .switch input:checked + .slider {
   background-color: #491bff;
-  transition: 0.3s;
 }
 
 .switch input:checked + .slider::before {
   transform: translateX(2rem);
+}
+
+.edit,
+.delete {
+  background: none;
+  border: none;
 }
 
 /* dialog form */

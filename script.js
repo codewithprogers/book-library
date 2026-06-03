@@ -167,6 +167,28 @@ function displayBooks() {
       coverPlaceholder.append(coverBtn, coverInput);
     }
 
+    toggle.checked = book.read === "Read";
+
+    toggle.addEventListener("change", (e) => {
+      if (toggle.checked) {
+        book.read = "Read";
+        readStatus.textContent = "Read";
+        readStatus.classList.remove("unread");
+        readStatus.classList.add("read");
+      } else {
+        book.read = "Unread";
+        readStatus.textContent = "Unread";
+        readStatus.classList.remove("read");
+        readStatus.classList.add("unread");
+      }
+    });
+
+    if (book.read === "Read") {
+      readStatus.classList.add("read");
+    } else {
+      readStatus.classList.add("unread");
+    }
+
     // append structure
     cardItem.append(cardInfo, controlTools);
     cardInfo.append(coverPlaceholder, bookInfo);
