@@ -128,6 +128,8 @@ function displayBooks() {
                   </svg>`;
 
     // event listeners for this card's buttons
+
+    // delete logic
     deleteBtn.addEventListener("click", () => {
       const currentBookIndex = myLibrary.findIndex(
         (libraryBook) => libraryBook.id === book.id,
@@ -139,6 +141,7 @@ function displayBooks() {
       displayBooks();
     });
 
+    // cover button logic
     coverBtn.addEventListener("click", () => {
       coverInput.click();
     });
@@ -167,6 +170,7 @@ function displayBooks() {
       coverPlaceholder.append(coverBtn, coverInput);
     }
 
+    // read status toggle logic
     toggle.checked = book.read === "Read";
 
     toggle.addEventListener("change", (e) => {
