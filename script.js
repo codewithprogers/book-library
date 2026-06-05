@@ -193,6 +193,26 @@ function displayBooks() {
       readStatus.classList.add("unread");
     }
 
+    // edit button logic
+    const titleInput = document.querySelector("#title");
+    const authorInput = document.querySelector("#author");
+    const pagesInput = document.querySelector("#pages");
+    const readInput = document.querySelector("#read-status");
+    const form = document.querySelector(".form");
+    const saveChanges = document.querySelector(".submit-btn");
+
+    edit.addEventListener("click", () => {
+      editingBookId = book.id;
+
+      titleInput.value = book.title;
+      authorInput.value = book.author;
+      pagesInput.value = book.pages;
+      readInput.checked = book.read === "Read";
+      
+      saveChanges.textContent = "Save changes";
+      modal.showModal();
+    });
+
     // append structure
     cardItem.append(cardInfo, controlTools);
     cardInfo.append(coverPlaceholder, bookInfo);
@@ -211,8 +231,13 @@ const modal = document.querySelector(".modal");
 const form = document.querySelector(".form");
 const closeForm = document.querySelector(".close-btn");
 const cancelNewBook = document.querySelector(".cancel-btn");
+const addNew = document.querySelector(".submit-btn");
+let editingBookId = null;
 
 openNewBookForm.addEventListener("click", () => {
+  editingBookId = null;
+  form.reset();
+  addNew.textContent = "Add book";
   modal.showModal();
 });
 
@@ -238,7 +263,21 @@ form.addEventListener("submit", (e) => {
   const pages = pagesInput.value;
   const read = readInput.checked ? "Read" : "Unread";
 
-  addBookToLibrary(title, author, pages, read);
+  if (editingBookId !== null) {
+    const bookToEdit = myLibrary.find((book) => book.id === editingBookId);
+
+    if (bookToEdit) {
+      bookToEdit.title = title;
+      bookToEdit.author = author;
+      bookToEdit.pages = pages;
+      bookToEdit.read = read;
+    }
+
+    editingBookId = null;
+    
+  } else {
+    addBookToLibrary(title, author, pages, read);
+  }
   displayBooks();
   modal.close();
   form.reset();
