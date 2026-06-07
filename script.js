@@ -284,3 +284,17 @@ form.addEventListener("submit", (e) => {
 });
 
 displayBooks();
+
+const hamburgerMenu = document.querySelector(".hamburger");
+const mobileNav = document.querySelector(".mobile-nav");
+const closeMobileMenu = document.querySelector(".close-menu");
+
+hamburgerMenu.addEventListener("click", () => {
+  mobileNav.classList.add("active");
+  hamburgerMenu.setAttribute("aria-expanded", "true");
+});
+
+closeMobileMenu.addEventListener("click", () => {
+  mobileNav.classList.remove("active");
+  hamburgerMenu.setAttribute("aria-expanded", "false");
+});
