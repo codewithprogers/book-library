@@ -283,6 +283,7 @@ form.addEventListener("submit", (e) => {
   form.reset();
 });
 
+addBookToLibrary("Good to Great", "Jim Collins", 320, "Read");
 displayBooks();
 
 const hamburgerMenu = document.querySelector(".hamburger");
