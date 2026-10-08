@@ -1,26 +1,38 @@
 const myLibrary = [];
 
 // constructor function
-function Book(title, author, pages, read) {
-  if (!new.target) {
-    throw Error("You must use the 'new' operator to call the constructor");
+// function Book(title, author, pages, read) {
+//   if (!new.target) {
+//     throw Error("You must use the 'new' operator to call the constructor");
+//   }
+//   this.title = title;
+//   this.author = author;
+//   this.pages = pages;
+//   this.read = read;
+//   this.id = crypto.randomUUID();
+//   this.coverImage = "";
+// }
+
+// class
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.id = crypto.randomUUID();
+    this.coverImage = "";
   }
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.id = crypto.randomUUID();
-  this.coverImage = "";
+
+  info() {
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}.`;
+  }
 }
 
 function addBookToLibrary(title, author, pages, read) {
   const newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
 }
-
-Book.prototype.info = function () {
-  return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}.`;
-};
 
 // display function
 const list = document.querySelector(".book-list");
@@ -208,7 +220,7 @@ function displayBooks() {
       authorInput.value = book.author;
       pagesInput.value = book.pages;
       readInput.checked = book.read === "Read";
-      
+
       saveChanges.textContent = "Save changes";
       modal.showModal();
     });
@@ -274,7 +286,6 @@ form.addEventListener("submit", (e) => {
     }
 
     editingBookId = null;
-    
   } else {
     addBookToLibrary(title, author, pages, read);
   }
